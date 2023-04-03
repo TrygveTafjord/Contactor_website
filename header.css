@@ -1,0 +1,140 @@
+.header_style {
+  height: 6vh;
+  position: fixed;
+  z-index: 99999;
+  background-color: white;
+  width: 100vw;
+  border-bottom: 1px solid rgb(192, 192, 192);
+  transition: all 0.3s ease-in-out;
+}
+
+.header_style img {
+  object-fit: cover;
+  height: 80%;
+  position: absolute;
+  left: 0;
+  margin-top: 3px;
+  margin-left: 10%;
+  transition: all 0.4s ease-in-out;
+}
+
+.header_style.shrink {
+  height: 4vh; /* adjust this value to your desired size */
+}
+
+.container_header.shrink {
+  display: none;
+}
+
+.header_style img.shrink {
+  margin-left: 0;
+  left: 50%;
+}
+
+/* .zoom-in {
+  animation-name: zoom-in;
+  animation-duration: 15s;
+  animation-fill-mode: forwards;
+} */
+
+/* @keyframes zoom-in {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+} */
+
+.container_header {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  justify-content: space-between;
+  float: right;
+  margin-right: 4%;
+}
+
+.header_button {
+  margin: auto;  
+  margin-left: 15px;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #363636;
+  width: fit-content;
+  position: relative;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+
+.header_button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.header_button:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.header_style.scroll {
+  height: 4vh; /* set a smaller height when scrolling down */
+  transition: height 0.3s ease-in-out; /* add a smooth transition effect */
+}
+
+
+.toggle-btn{
+  width: 35px;
+  position: absolute;
+  right: 10%;
+  display: none;
+  height: 90%;
+  top: 25%;
+}
+
+.toggle-btn span{
+  display: inline-block;
+  width: 95%;
+  height: 5px;
+  border-radius: 10%;
+  background-color: #393939;
+  margin-bottom: 15%;
+}
+
+@media (max-width: 761px) {
+  .toggle-btn{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .container_header{
+    display: none;
+  }
+
+  .header_style.shrink {
+    height: 6vh; /* adjust this value to your desired size */
+  }
+  
+  
+  .header_style img.shrink {
+    object-fit: cover;
+    height: 80%;
+    position: absolute;
+    left: 0;
+    margin-top: 3px;
+    margin-left: 10%;
+  }
+
+
+}
